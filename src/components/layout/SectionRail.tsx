@@ -138,12 +138,12 @@ export default function SectionRail() {
                 {/* Track — centered on the 12px dot boxes (pl-5 = 20px + 6px = 26px) */}
                 <span
                     aria-hidden="true"
-                    className="absolute left-[26px] top-2 bottom-2 w-0.5 -translate-x-1/2 rounded-full bg-cream-300"
+                    className="absolute left-[26px] top-2 bottom-2 w-0.5 -translate-x-1/2 rounded-full bg-white/10"
                 />
                 {/* Fill — continuous, tracks scroll per frame (no easing lag) */}
                 <span
                     aria-hidden="true"
-                    className="absolute left-[26px] top-2 w-0.5 -translate-x-1/2 rounded-full bg-terracotta-500 origin-top"
+                    className="absolute left-[26px] top-2 w-0.5 -translate-x-1/2 rounded-full bg-gradient-to-b from-flux-400 to-iris-400 origin-top shadow-[0_0_10px_rgba(34,211,238,0.6)]"
                     style={{
                         height: `calc((100% - 1rem) * ${fillFraction})`,
                         transition: shouldReduceMotion ? "none" : "height 0.08s linear",
@@ -167,17 +167,17 @@ export default function SectionRail() {
                                         aria-hidden="true"
                                         className={`block rounded-full border-2 transition-all duration-300 ${
                                             isActive
-                                                ? "w-3 h-3 bg-terracotta-500 border-terracotta-500 scale-110"
-                                                : "w-2.5 h-2.5 bg-cream-100 border-cream-400 group-hover:border-terracotta-400"
+                                                ? "w-3 h-3 bg-flux-400 border-flux-400 scale-110 shadow-[0_0_10px_rgba(34,211,238,0.9)]"
+                                                : "w-2.5 h-2.5 bg-night-900 border-night-700 group-hover:border-flux-400"
                                         }`}
                                     />
                                 </span>
                                 {/* Label */}
                                 <span
-                                    className={`text-base tracking-wide transition-all duration-300 ${
+                                    className={`text-sm tracking-wide transition-all duration-300 ${
                                         isActive
                                             ? "text-ink font-semibold opacity-100 translate-x-0.5"
-                                            : "text-ink-soft font-medium opacity-70 group-hover:opacity-100 group-hover:text-terracotta-600"
+                                            : "text-ink-soft font-medium opacity-70 group-hover:opacity-100 group-hover:text-flux-300"
                                     }`}
                                 >
                                     {s.label}

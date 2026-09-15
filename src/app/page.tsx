@@ -14,8 +14,9 @@ import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-screen bg-cream-100">
+    <main id="main-content" tabIndex={-1} className="min-h-screen">
       <Navbar />
+      <SectionRail />
       <SmoothScroll />
 
       <Hero />

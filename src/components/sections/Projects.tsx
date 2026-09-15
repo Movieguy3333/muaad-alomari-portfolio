@@ -8,16 +8,16 @@ export default function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-cream-200 border-t border-cream-300"
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-night-850/40 border-t border-white/[0.06]"
     >
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-sm font-mono uppercase tracking-[0.2em] text-terracotta-700 mb-3">
+          <p className="text-sm font-mono uppercase tracking-[0.2em] text-flux-400 mb-3">
             Work
           </p>
           <h2
             id="projects-heading"
-            className="text-3xl md:text-4xl font-bold text-ink mb-4 tracking-tight"
+            className="text-3xl md:text-5xl font-bold text-ink mb-4 tracking-tight"
           >
             Technical Projects
           </h2>
@@ -26,7 +26,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {projects.map((project, index) => (
             <StaggerItem key={index} className="h-full">
               <ProjectCard project={project} />

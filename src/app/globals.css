@@ -3,12 +3,14 @@
 @tailwind utilities;
 
 :root {
-    --foreground-rgb: 31, 27, 22;   /* ink */
-    --background-rgb: 250, 246, 239; /* cream-100 */
+    --foreground-rgb: 236, 236, 243; /* ink */
+    --background-rgb: 6, 6, 9;        /* night-950 */
+    color-scheme: dark;
 }
 
 html {
     scroll-padding-top: 5rem; /* clear the fixed navbar on anchor jumps */
+    background: #060609;
 }
 
 /* Lenis smooth scroll (see SmoothScroll.tsx) */
@@ -28,48 +30,115 @@ html.lenis body {
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: #FAF6EF;
+    background: #060609;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Terminal — warm espresso slab, palette-matched to the cream/terracotta theme */
-.terminal-container {
-    font-family: "Monaco", "Courier New", monospace;
-    background: #201712; /* warm espresso, not neutral black */
-    border: 1px solid rgba(194, 104, 61, 0.30); /* terracotta hairline */
-    border-radius: 0.75rem;
+/* Ambient backdrop: fixed dual-tone glow + fine grid, painted behind everything.
+   Sits at -z so all sections (which are transparent-to-tinted) float over it. */
+.ambient-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: #060609;
+    background-image:
+        radial-gradient(60rem 60rem at 78% -10%, rgba(34, 211, 238, 0.10), transparent 60%),
+        radial-gradient(48rem 48rem at 8% 12%, rgba(139, 92, 246, 0.10), transparent 55%),
+        radial-gradient(50rem 50rem at 50% 118%, rgba(34, 211, 238, 0.06), transparent 60%);
+}
+.ambient-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-size: 64px 64px;
+    /* fade the grid toward the edges so it reads as texture, not a table */
+    -webkit-mask-image: radial-gradient(ellipse 100% 70% at 50% 30%, #000 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 100% 70% at 50% 30%, #000 55%, transparent 100%);
 }
 
-.terminal-input {
-    font-family: "Monaco", "Courier New", monospace;
+/* Custom scrollbar — cool, minimal, matches the palette */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a3a #0a0a10;
+}
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+*::-webkit-scrollbar-track {
+    background: #0a0a10;
+}
+*::-webkit-scrollbar-thumb {
+    background: #26263a;
+    border-radius: 999px;
+    border: 2px solid #0a0a10;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: #33334a;
 }
 
-.terminal-output {
-    font-family: "Monaco", "Courier New", monospace;
-    color: #EADFCE; /* warm cream text */
+/* Text selection */
+::selection {
+    background: rgba(34, 211, 238, 0.25);
+    color: #ffffff;
 }
 
-@layer utilities {
-    .bg-grid-pattern {
-        background-size: 40px 40px;
-        background-image: radial-gradient(circle, #E8DCC8 1px, transparent 1px);
+@layer components {
+    /* Frosted glass surface — cards, panels, nav */
+    .glass {
+        background: rgba(18, 18, 28, 0.55);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-strong {
+        background: rgba(20, 20, 32, 0.72);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.10);
     }
 }
 
-.mobile-menu-overlay {
-    background-color: rgba(31, 27, 22, 0.35);
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    position: fixed;
-    inset: 0;
-    top: 64px;
-    z-index: 40;
+@layer utilities {
+    /* Gradient text — cyan → violet, for headline emphasis */
+    .text-gradient {
+        background-image: linear-gradient(100deg, #67E8F9 0%, #A78BFA 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    /* Hairline gradient divider */
+    .rule-gradient {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+    }
 }
 
-/* Accessibility: visible keyboard focus ring on cream background */
+/* Terminal — sleek dark glass slab with a cyan prompt */
+.terminal-container {
+    font-family: var(--font-mono), "SFMono-Regular", "Menlo", monospace;
+    background: linear-gradient(180deg, rgba(10, 12, 20, 0.92), rgba(6, 8, 14, 0.94));
+    border: 1px solid rgba(34, 211, 238, 0.18);
+    border-radius: 0.9rem;
+    box-shadow: 0 24px 70px -30px rgba(34, 211, 238, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.terminal-input {
+    font-family: var(--font-mono), "SFMono-Regular", "Menlo", monospace;
+}
+
+.terminal-output {
+    font-family: var(--font-mono), "SFMono-Regular", "Menlo", monospace;
+    color: #C9D3E4; /* cool light text */
+}
+
+/* Accessibility: visible keyboard focus ring on dark background */
 :focus-visible {
-    outline: 2px solid #C2683D; /* terracotta-500 */
+    outline: 2px solid #22D3EE; /* flux-400 */
     outline-offset: 2px;
     border-radius: 2px;
 }
@@ -81,14 +150,24 @@ body {
     top: -3rem;
     z-index: 100;
     padding: 0.5rem 1rem;
-    background: #C2683D;
-    color: #FAF6EF;
+    background: #22D3EE;
+    color: #06121A;
     font-weight: 600;
     border-radius: 0.375rem;
     transition: top 0.2s ease;
 }
 .skip-link:focus {
     top: 1rem;
+}
+
+.mobile-menu-overlay {
+    background-color: rgba(6, 6, 9, 0.6);
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    position: fixed;
+    inset: 0;
+    top: 64px;
+    z-index: 40;
 }
 
 /* Respect users who prefer reduced motion */
