@@ -9,7 +9,10 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group h-full flex flex-col bg-surface border border-line rounded-2xl overflow-hidden transition-all duration-300  hover:shadow-2xl hover:shadow-accent/10 hover:border-accent/40">
+    <div
+      id={project.anchorId}
+      className="group h-full flex flex-col bg-surface border border-line rounded-2xl overflow-hidden transition-all duration-300  hover:shadow-2xl hover:shadow-accent/10 hover:border-accent/40"
+    >
       {/* Top Accent Bar */}
       <div className="h-0.5 w-full bg-gradient-to-r from-accent to-accent-2 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 

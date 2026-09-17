@@ -53,6 +53,7 @@ export const experience = [
 export const projects = [
   {
     title: "Fitmoji Web Simulator",
+    anchorId: "Fitmoji",
     year: "2026",
     description:
       "Created an in-browser combat simulator (Next.js/React) modeling a mobile game's battle engine, powered by a real-time renderer that recomputes hundreds of sprites every 32ms, sustaining zero frame drops across dozens of concurrent entities. Each unit type exposes its own live-tunable damage, HP, and behavior. Non-technical stakeholders adjust gameplay balance at the individual-unit level and watch results instantly.",
@@ -65,6 +66,7 @@ export const projects = [
   },
   {
     title: "GreenBites",
+    anchorId: "GreenBites",
     year: "2025",
     description:
       "GreenBites is a full-stack web application that helps users track their meals and visualize the environmental impact of their diet.  Built with React, TypeScript, Node.js, and TailwindCSS, it features real-time food search, meal logging, and interactive data visualizations. A custom carbon footprint model analyzes each meal’s ingredients to estimate its environmental cost, blending nutrition tracking with sustainability insights.",
@@ -77,6 +79,7 @@ export const projects = [
   },
   {
     title: "YourYugiohProfits",
+    anchorId: "YourYugiohProfits",
     year: "2025",
     description:
       "YourYugiohProfits is a full-stack web application that helps Yu-Gi-Oh! collectors manage and analyze the financial value of their card collections. Users can search and update their collection, set personalized price alerts, and view real-time insights into portfolio worth. The valuations dashboard features summary statistics and interactive charts that break down cards by price tiers, giving collectors a clear financial snapshot of their hobby.",

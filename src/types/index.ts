@@ -1,5 +1,6 @@
 export interface Project {
   title: string;
+  anchorId: string;
   year: string;
   description: string;
   tags: string[];
