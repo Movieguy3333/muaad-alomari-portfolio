@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Mail, Github, Linkedin, Calendar } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 
 export default function Navbar() {
@@ -19,54 +18,60 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "bg-cream-100/90 backdrop-blur-md border-cream-300 shadow-sm"
-          : "bg-cream-100/60 backdrop-blur-sm border-transparent"
+          ? "bg-bg/80 backdrop-blur-xl border-line shadow-lg shadow-black/40"
+          : "bg-bg/40 backdrop-blur-md border-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`flex justify-between items-center transition-all duration-300 ${scrolled ? "h-16" : "h-20"}`}
         >
-          {/* Left: Name */}
-          <div className="font-serif font-bold text-2xl text-ink">
-            Portfolio
-          </div>
+          {/* Left: Wordmark */}
+          <a
+            href="#home"
+            className="flex items-center gap-2.5 font-bold text-xl tracking-tight"
+          >
+            <span className="grid h-8 w-8 place-items-center rounded-lg border border-accent/40 bg-accent/10 font-mono text-sm text-accent">
+              M
+            </span>
+            <span className="text-gradient">Muaad</span>
+          </a>
 
           {/* Right: Contact Links */}
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-1 sm:gap-2 items-center">
             <a
               href={`mailto:${personalInfo.email}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-muted hover:text-terracotta-500 transition-colors"
+              className="grid h-9 w-9 place-items-center rounded-lg text-content-muted hover:text-accent hover:bg-surface transition-colors"
               aria-label="Email"
               title={personalInfo.email}
             >
-              <Mail size={20} />
+              <Mail size={19} />
             </a>
             <a
               href={personalInfo.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-muted hover:text-terracotta-500 transition-colors"
+              className="grid h-9 w-9 place-items-center rounded-lg text-content-muted hover:text-accent hover:bg-surface transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <Linkedin size={19} />
             </a>
             <a
               href={personalInfo.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-muted hover:text-terracotta-500 transition-colors"
+              className="grid h-9 w-9 place-items-center rounded-lg text-content-muted hover:text-accent hover:bg-surface transition-colors"
               aria-label="GitHub"
             >
-              <Github size={20} />
+              <Github size={19} />
             </a>
             <a
               href={personalInfo.links.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-block px-3 py-1.5 text-xs font-semibold text-terracotta-600 border border-terracotta-300 rounded-full hover:bg-terracotta-50 transition-all"
+              className="hidden sm:inline-block ml-2 px-4 py-1.5 text-xs font-semibold text-accent border border-accent/40 rounded-full hover:bg-accent/10 hover:border-accent/70 transition-all"
             >
               Resume
             </a>

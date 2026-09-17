@@ -8,6 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Muaad Alomari | Full Stack Web Developer",
   description: "Full Stack & Mobile Developer Portfolio",
+  icons: {
+    icon: "/images/muaad.JPG",
+    shortcut: "/images/muaad.JPG",
+    apple: "/images/muaad.JPG",
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-cream-100 text-ink`}
+        className={`${inter.className} bg-bg text-content`}
         suppressHydrationWarning
       >
         <a href="#main-content" className="skip-link">

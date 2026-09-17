@@ -123,49 +123,60 @@ Resume: ${personalInfo.links.resume}`;
     };
 
     return (
-        <section id="terminal" aria-label="Interactive command-line portfolio explorer" onClick={() => inputRef.current?.focus({ preventScroll: true })} className="py-12 px-4 sm:px-6 lg:px-8 bg-cream-100">
+        <section id="terminal" aria-label="Interactive command-line portfolio explorer" onClick={() => inputRef.current?.focus({ preventScroll: true })} className="py-12 px-4 sm:px-6 lg:px-8 bg-bg">
             <div className="max-w-4xl mx-auto">
                 <div className="mb-5 flex items-center gap-3">
-                    <span className="h-px flex-1 bg-cream-300" />
-                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-ink-muted">
-                        Explore via terminal — type <span className="text-terracotta-700">help</span>
+                    <span className="h-px flex-1 bg-line" />
+                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-content-faint">
+                        Explore via terminal — type <span className="text-accent">help</span>
                     </p>
-                    <span className="h-px flex-1 bg-cream-300" />
+                    <span className="h-px flex-1 bg-line" />
                 </div>
-                <div
-                    ref={terminalRef}
-                    role="log"
-                    aria-live="polite"
-                    aria-atomic="false"
-                    aria-label="Terminal output"
-                    className="terminal-container min-h-96 max-h-96 overflow-y-auto p-6 rounded-lg shadow-2xl"
-                >
-                    {lines.map((line, index) => (
-                        <div key={index} className="mb-2">
-                            {line.type === "input" ? (
-                                <div className="text-terracotta-300 font-semibold">
-                                    {line.content}
-                                </div>
-                            ) : (
-                                <div className="text-[#EADFCE] whitespace-pre-wrap break-words">
-                                    {line.content}
-                                </div>
-                            )}
-                        </div>
-                    ))}
+                <div className="terminal-container overflow-hidden shadow-2xl shadow-black/50">
+                    {/* Window chrome */}
+                    <div className="flex items-center gap-2 border-b border-white/5 px-4 py-3">
+                        <span className="h-3 w-3 rounded-full bg-accent-2/70" aria-hidden="true" />
+                        <span className="h-3 w-3 rounded-full bg-accent-deep" aria-hidden="true" />
+                        <span className="h-3 w-3 rounded-full bg-accent/70" aria-hidden="true" />
+                        <span className="ml-2 font-mono text-xs text-content-faint">
+                            muaad@portfolio&nbsp;— zsh
+                        </span>
+                    </div>
+                    <div
+                        ref={terminalRef}
+                        role="log"
+                        aria-live="polite"
+                        aria-atomic="false"
+                        aria-label="Terminal output"
+                        className="min-h-96 max-h-96 overflow-y-auto p-6"
+                    >
+                        {lines.map((line, index) => (
+                            <div key={index} className="mb-2">
+                                {line.type === "input" ? (
+                                    <div className="text-accent font-semibold">
+                                        {line.content}
+                                    </div>
+                                ) : (
+                                    <div className="text-content-muted whitespace-pre-wrap break-words">
+                                        {line.content}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Input Form */}
                 <form onSubmit={handleSubmit} className="mt-4">
-                    <div className="flex items-center bg-[#201712] border border-terracotta-500/30 rounded-lg px-4 py-2">
-                        <span className="text-terracotta-400 font-semibold mr-2" aria-hidden="true">$</span>
+                    <div className="flex items-center bg-bg-soft border border-accent/25 rounded-lg px-4 py-2.5 focus-within:border-accent/60 transition-colors">
+                        <span className="text-accent font-semibold mr-2" aria-hidden="true">$</span>
                         <input
                             ref={inputRef}
                             type="text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             onKeyDown={handleKeyDown}
-                            className="flex-1 bg-transparent text-[#EADFCE] outline-none font-mono terminal-input"
+                            className="flex-1 bg-transparent text-content outline-none font-mono terminal-input placeholder:text-content-faint"
                             placeholder="Type command here..."
                             aria-label="Terminal command input. Type help for available commands."
                             autoComplete="off"

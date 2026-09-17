@@ -2,9 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================================
+   DESIGN TOKENS — single source of truth for the palette.
+   Cool, modern, futuristic dark theme. Colors are stored as space-separated
+   RGB channels so Tailwind can inject opacity via rgb(var(--x) / <alpha>).
+   Discipline: 6 surface tones, 3 text tones, one cyan accent family, one
+   indigo partner reserved strictly for gradients/glows. Nothing else.
+   ============================================================================ */
 :root {
-    --foreground-rgb: 31, 27, 22;   /* ink */
-    --background-rgb: 250, 246, 239; /* cream-100 */
+    /* Surfaces — cool near-black climbing to elevated panels */
+    --bg:            6 9 15;      /* #06090F  deepest page ground        */
+    --bg-soft:       10 14 22;    /* #0A0E16  alternating section band   */
+    --surface:       15 21 32;    /* #0F1520  cards / panels             */
+    --surface-2:     22 30 44;    /* #161E2C  inset chips / hover fills  */
+    --border:        31 42 60;    /* #1F2A3C  hairlines / dividers       */
+    --border-strong: 45 61 84;    /* #2D3D54  emphasized edges           */
+
+    /* Text — cool white down to faint */
+    --text:        231 237 245;   /* #E7EDF5  primary                    */
+    --text-muted:  148 164 186;   /* #94A4BA  secondary / body           */
+    --text-faint:  95 111 133;    /* #5F6F85  meta / disabled            */
+
+    /* Accent — electric cyan family + one indigo for gradients only */
+    --accent:        34 211 238;  /* #22D3EE  primary accent             */
+    --accent-bright: 103 232 249; /* #67E8F9  hover / highlight          */
+    --accent-deep:   14 116 144;  /* #0E7490  muted / pressed            */
+    --accent-2:      129 140 248; /* #818CF8  indigo — gradient partner  */
+
+    color-scheme: dark;
 }
 
 html {
@@ -27,17 +52,101 @@ html.lenis body {
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background: #FAF6EF;
+    color: rgb(var(--text));
+    background: rgb(var(--bg));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Terminal — warm espresso slab, palette-matched to the cream/terracotta theme */
+/* Cool tinted text selection */
+::selection {
+    background: rgb(var(--accent) / 0.25);
+    color: rgb(var(--text));
+}
+
+/* Slim dark scrollbar (WebKit) */
+::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(var(--bg));
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(var(--border-strong));
+    border: 3px solid rgb(var(--bg));
+    border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--accent-deep));
+}
+/* Firefox */
+* {
+    scrollbar-color: rgb(var(--border-strong)) rgb(var(--bg));
+}
+
+@layer components {
+    /* Inline <strong> inside the About intro (dangerouslySetInnerHTML) reads
+       brighter than the muted body it sits in */
+    .about-copy strong {
+        color: rgb(var(--text));
+        font-weight: 600;
+    }
+
+    /* Cyan → indigo gradient text — hero name, wordmark */
+    .text-gradient {
+        background-image: linear-gradient(
+            110deg,
+            rgb(var(--text)) 0%,
+            rgb(var(--accent-bright)) 55%,
+            rgb(var(--accent-2)) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+@layer utilities {
+    /* Faint futuristic line grid; fades out toward the edges via a radial mask */
+    .bg-grid {
+        background-image:
+            linear-gradient(to right, rgb(var(--border) / 0.6) 1px, transparent 1px),
+            linear-gradient(to bottom, rgb(var(--border) / 0.6) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+        mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+    }
+
+    /* Ambient accent glows behind the hero — cyan up-left, indigo down-right */
+    .bg-glow-hero {
+        background-image:
+            radial-gradient(48rem 32rem at 12% -8%, rgb(var(--accent) / 0.14), transparent 60%),
+            radial-gradient(42rem 30rem at 100% 40%, rgb(var(--accent-2) / 0.12), transparent 60%);
+    }
+
+    /* Soft accent halo — apply to cards/images that should read as lit */
+    .glow-accent {
+        box-shadow: 0 0 0 1px rgb(var(--accent) / 0.25),
+                    0 12px 48px -12px rgb(var(--accent) / 0.35);
+    }
+}
+
+/* Scroll cue — gentle vertical drift, done in CSS so it lives on the
+   compositor instead of holding a JS animation loop open. */
+@keyframes scroll-cue {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(7px); }
+}
+.animate-scroll-cue {
+    animation: scroll-cue 1.6s ease-in-out infinite;
+}
+
+/* Terminal — deep obsidian slab with a cyan hairline, native to the dark theme */
 .terminal-container {
     font-family: "Monaco", "Courier New", monospace;
-    background: #201712; /* warm espresso, not neutral black */
-    border: 1px solid rgba(194, 104, 61, 0.30); /* terracotta hairline */
+    background: rgb(var(--bg-soft));
+    border: 1px solid rgb(var(--accent) / 0.22);
     border-radius: 0.75rem;
 }
 
@@ -47,18 +156,11 @@ body {
 
 .terminal-output {
     font-family: "Monaco", "Courier New", monospace;
-    color: #EADFCE; /* warm cream text */
-}
-
-@layer utilities {
-    .bg-grid-pattern {
-        background-size: 40px 40px;
-        background-image: radial-gradient(circle, #E8DCC8 1px, transparent 1px);
-    }
+    color: rgb(var(--text));
 }
 
 .mobile-menu-overlay {
-    background-color: rgba(31, 27, 22, 0.35);
+    background-color: rgb(var(--bg) / 0.7);
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
     position: fixed;
@@ -67,9 +169,9 @@ body {
     z-index: 40;
 }
 
-/* Accessibility: visible keyboard focus ring on cream background */
+/* Accessibility: visible keyboard focus ring, accent on dark ground */
 :focus-visible {
-    outline: 2px solid #C2683D; /* terracotta-500 */
+    outline: 2px solid rgb(var(--accent));
     outline-offset: 2px;
     border-radius: 2px;
 }
@@ -81,8 +183,8 @@ body {
     top: -3rem;
     z-index: 100;
     padding: 0.5rem 1rem;
-    background: #C2683D;
-    color: #FAF6EF;
+    background: rgb(var(--accent));
+    color: rgb(var(--bg));
     font-weight: 600;
     border-radius: 0.375rem;
     transition: top 0.2s ease;
@@ -111,5 +213,6 @@ body {
     [data-reveal] {
         opacity: 1 !important;
         transform: none !important;
+        filter: none !important;
     }
 }

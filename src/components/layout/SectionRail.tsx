@@ -9,7 +9,7 @@ const SECTIONS = [
     { id: "experience", label: "Experience" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
-    { id: "about", label: "About" },
+    { id: "about", label: "Fun Facts" },
 ] as const;
 
 const NAV = 80; // fixed navbar height
@@ -138,12 +138,12 @@ export default function SectionRail() {
                 {/* Track — centered on the 12px dot boxes (pl-5 = 20px + 6px = 26px) */}
                 <span
                     aria-hidden="true"
-                    className="absolute left-[26px] top-2 bottom-2 w-0.5 -translate-x-1/2 rounded-full bg-cream-300"
+                    className="absolute left-[26px] top-2 bottom-2 w-0.5 -translate-x-1/2 rounded-full bg-line"
                 />
                 {/* Fill — continuous, tracks scroll per frame (no easing lag) */}
                 <span
                     aria-hidden="true"
-                    className="absolute left-[26px] top-2 w-0.5 -translate-x-1/2 rounded-full bg-terracotta-500 origin-top"
+                    className="absolute left-[26px] top-2 w-0.5 -translate-x-1/2 rounded-full bg-accent origin-top shadow-[0_0_10px_1px_rgb(var(--accent)/0.6)]"
                     style={{
                         height: `calc((100% - 1rem) * ${fillFraction})`,
                         transition: shouldReduceMotion ? "none" : "height 0.08s linear",
@@ -167,8 +167,8 @@ export default function SectionRail() {
                                         aria-hidden="true"
                                         className={`block rounded-full border-2 transition-all duration-300 ${
                                             isActive
-                                                ? "w-3 h-3 bg-terracotta-500 border-terracotta-500 scale-110"
-                                                : "w-2.5 h-2.5 bg-cream-100 border-cream-400 group-hover:border-terracotta-400"
+                                                ? "w-3 h-3 bg-accent border-accent scale-110 shadow-[0_0_10px_1px_rgb(var(--accent)/0.6)]"
+                                                : "w-2.5 h-2.5 bg-bg border-line-strong group-hover:border-accent/70"
                                         }`}
                                     />
                                 </span>
@@ -176,8 +176,8 @@ export default function SectionRail() {
                                 <span
                                     className={`text-base tracking-wide transition-all duration-300 ${
                                         isActive
-                                            ? "text-ink font-semibold opacity-100 translate-x-0.5"
-                                            : "text-ink-soft font-medium opacity-70 group-hover:opacity-100 group-hover:text-terracotta-600"
+                                            ? "text-content font-semibold opacity-100 translate-x-0.5"
+                                            : "text-content-faint font-medium opacity-70 group-hover:opacity-100 group-hover:text-accent"
                                     }`}
                                 >
                                     {s.label}

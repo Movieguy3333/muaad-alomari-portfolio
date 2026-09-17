@@ -88,46 +88,39 @@ export const projects = [
   },
 ];
 
-export const about = {
-  heading: "More Than Just Code",
-  paragraphs: [
-    `I define myself as a <strong> design-minded engineer.</strong> While my core strength is full-stack development, I don't stop once the logic works.`,
-    `
+// "Fun Facts About Me" section — a few things that recharge me away from the
+// keyboard. `icon` maps to a lucide-react component in About.tsx; `image` paths
+// point at placeholders in /public/images until the real shots go in.
+export const funFacts = {
+  eyebrow: "Off the Clock",
+  heading: "Fun Facts About Me",
+  intro:
+    "There's a person behind the pull requests. Here's what keeps me sharp, grounded, and endlessly curious when I step away from the keyboard.",
+  facts: [
+    {
+      icon: "Cat",
+      title: "Cat Sanctuary Volunteer",
+      description:
+        "Certified cat person. Between my own and the ones at the local sanctuary I volunteer at, they're my favorite way to decompress after a long build, and a good reminder to slow down.",
+      image: "/images/cat-sanctuary.png",
+      imageAlt: "Cats at an animal sanctuary",
+    },
+    {
+      icon: "Swords",
+      title: "Yu-Gi-Oh Pro",
+      description:
+        "I used to grind competitive Yu-Gi-Oh tournaments, deck-building and reading opponents under pressure. Nothing sharpens strategic thinking like winning (or losing) a match card by card.",
+      image: "/images/yugioh-picture.png",
+      imageAlt: "Yu-Gi-Oh trading cards",
+    },
 
-I'm genuinely obsessive about how things look. When I come across a website that stops me mid-scroll, I catch myself reverse-engineering it in my head. The visual hierarchy, the color balance, the way whitespace is doing quiet work to guide the eye. That instinct doesn't stay in my head; it shows up in everything I build, from real-time rendering engines to the smallest UI details. I care as much about how an interface feels to use as I do about the architecture running underneath it.`,
-  ],
-  highlights: [
     {
-      icon: "Code2",
-      color: "text-terracotta-500",
-      borderHover: "hover:border-terracotta-300",
-      title: "Engineering",
-      description: "Scalable Web & Mobile Apps",
-    },
-    {
-      icon: "BarChart3",
-      color: "text-terracotta-500",
-      borderHover: "hover:border-terracotta-300",
-      title: "Analytics",
-      description: "Tableau & Python Data Viz",
-    },
-  ],
-  afkHeading: "When I'm AFK",
-  hobbies: [
-    {
-      title: "Football/Soccer",
+      icon: "Clapperboard",
+      title: "Scriptwriter",
       description:
-        "I love playing football with my friends. I love to dictate the play in general but am as versatile as a player can be with ability to play in any position.",
-    },
-    {
-      title: "Gaming",
-      description:
-        "Big fan of strategy games. They keep my problem-solving skills sharp even when relaxing.",
-    },
-    {
-      title: "Cooking",
-      description:
-        "I enjoy experimenting with new recipes, different cuisines and styles. It's the only time I don't strictly follow documentation and give it my own touch :)",
+        "When I'm not writing code, I'm writing scripts, plotting characters, dialogue, and story beats. It's the same obsession with structure and pacing, just aimed at a page instead of a screen.",
+      image: "/images/Muaad-suit.jpg",
+      imageAlt: "Scriptwriting and storyboarding",
     },
   ],
 };

@@ -1,5 +1,13 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * Semantic color layer. The actual palette lives in src/app/globals.css as CSS
+ * custom properties (RGB channel tokens); these names just resolve to them, so
+ * globals.css stays the single source of truth. Using rgb(var(--x) / <alpha>)
+ * keeps Tailwind opacity modifiers working (e.g. bg-accent/20, border-line/60).
+ */
+const token = (name: string) => `rgb(var(${name}) / <alpha-value>)`;
+
 const config: Config = {
     content: [
         "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,37 +17,35 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Warm cream surfaces — page background + section banding
-                cream: {
-                    50: '#FDFBF7',
-                    100: '#FAF6EF', // page base
-                    200: '#F3ECE0', // section alt / cards
-                    300: '#E8DCC8', // borders / dividers
-                    400: '#DDCDB4',
-                    500: '#C9B591',
+                // Surfaces
+                bg: {
+                    DEFAULT: token("--bg"),
+                    soft: token("--bg-soft"),
                 },
-                // Warm near-black text scale
-                ink: {
-                    DEFAULT: '#1F1B16',
-                    muted: '#6B6259',
-                    soft: '#8C8378',
+                surface: {
+                    DEFAULT: token("--surface"),
+                    2: token("--surface-2"),
                 },
-                // Terracotta accent — CTAs, links, highlights
-                terracotta: {
-                    50: '#FBF0EA',
-                    100: '#F6DFD2',
-                    200: '#ECBFA5',
-                    300: '#E0A080',
-                    400: '#D17F55',
-                    500: '#C2683D', // main accent
-                    600: '#A9542D',
-                    700: '#8A4425',
-                    800: '#6E3620',
-                    900: '#5A2D1D',
+                line: {
+                    DEFAULT: token("--border"),
+                    strong: token("--border-strong"),
+                },
+                // Text
+                content: {
+                    DEFAULT: token("--text"),
+                    muted: token("--text-muted"),
+                    faint: token("--text-faint"),
+                },
+                // Accent (cyan family) + indigo gradient partner
+                accent: {
+                    DEFAULT: token("--accent"),
+                    bright: token("--accent-bright"),
+                    deep: token("--accent-deep"),
+                    2: token("--accent-2"),
                 },
             },
             backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
             },
         },
     },

@@ -87,8 +87,17 @@ export function Stagger({
 }
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 18 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+    hidden: { opacity: 0, y: 24, scale: 0.96, filter: "blur(8px)" },
+    show: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        transition: { duration: 0.7, ease: EASE },
+        // Drop the filter entirely once settled so no persistent blur layer
+        // lingers (keeps compositing cheap and screenshots clean).
+        transitionEnd: { filter: "none" },
+    },
 };
 
 export function StaggerItem({
