@@ -24,7 +24,7 @@ export default function About() {
         {/* Section header — matches the eyebrow/heading rhythm of the other sections */}
         <div className="mb-16 max-w-2xl">
           <p className="text-sm font-mono uppercase tracking-[0.2em] text-accent mb-3">
-            {funFacts.eyebrow} About
+            {funFacts.eyebrow}
           </p>
           <h2
             id="about-heading"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 
@@ -31,10 +32,14 @@ export default function Navbar() {
             href="#home"
             className="flex items-center gap-2.5 font-bold text-xl tracking-tight"
           >
-            <span className="grid h-8 w-8 place-items-center rounded-lg border border-accent/40 bg-accent/10 font-mono text-sm text-accent">
-              M
-            </span>
-            <span className="text-gradient">Muaad</span>
+            <Image
+              src="/images/muaad.JPG"
+              alt="Muaad Alomari"
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-lg border border-accent/40 object-cover"
+            />
+            <span className="text-gradient">Muaad Alomari</span>
           </a>
 
           {/* Right: Contact Links */}

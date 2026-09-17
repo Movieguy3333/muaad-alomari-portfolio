@@ -27,7 +27,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch auto-rows-fr">
           {projects.map((project, index) => (
             <StaggerItem key={index} className="h-full">
               {/* Alternating columns drift at slightly different rates on

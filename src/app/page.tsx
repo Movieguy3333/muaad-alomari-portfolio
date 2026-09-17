@@ -18,7 +18,7 @@ export default function Home() {
     <main id="main-content" tabIndex={-1} className="min-h-screen bg-bg">
       <ScrollProgress />
       <Navbar />
-      <SectionRail />
+      {/*   <SectionRail /> */}
       <SmoothScroll />
 
       <Hero />

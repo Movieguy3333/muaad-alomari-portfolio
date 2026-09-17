@@ -9,12 +9,12 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group h-full flex flex-col bg-surface border border-line rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-accent/10 hover:border-accent/40">
+    <div className="group h-full flex flex-col bg-surface border border-line rounded-2xl overflow-hidden transition-all duration-300  hover:shadow-2xl hover:shadow-accent/10 hover:border-accent/40">
       {/* Top Accent Bar */}
       <div className="h-0.5 w-full bg-gradient-to-r from-accent to-accent-2 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
       {/* Content Section */}
-      <div className="p-6 flex flex-col flex-grow gap-y-4">
+      <div className="p-6 flex flex-col  gap-y-4">
         <a
           href={project.links.code}
           target="_blank"
@@ -41,7 +41,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
 
-        <p className="text-content-muted mb-6 flex-grow leading-relaxed">
+        <p className="text-content-muted mb-6 leading-relaxed">
           {project.description}
         </p>
 

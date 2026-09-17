@@ -55,7 +55,7 @@ export const projects = [
     title: "Fitmoji Web Simulator",
     year: "2026",
     description:
-      "Created an in-browser combat simulator (Next.js/React) modeling a mobile game's battle engine, powered by a real-time renderer that recomputes hundreds of sprites every 32ms, sustaining zero frame drops across dozens of concurrent entities. Each unit type exposes its own live-tunable damage, HP, and behavior. Non-technical stakeholders adjust gameplay balance at the individual-unit level and watch results instantly, no native rebuild-and-redeploy required.",
+      "Created an in-browser combat simulator (Next.js/React) modeling a mobile game's battle engine, powered by a real-time renderer that recomputes hundreds of sprites every 32ms, sustaining zero frame drops across dozens of concurrent entities. Each unit type exposes its own live-tunable damage, HP, and behavior. Non-technical stakeholders adjust gameplay balance at the individual-unit level and watch results instantly.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Firebase"],
     links: {
       // Add your deployed link here later if you release a dmg/app
@@ -67,7 +67,7 @@ export const projects = [
     title: "GreenBites",
     year: "2025",
     description:
-      "GreenBites is a full-stack web application that helps users track their meals and visualize the environmental impact of their diet. Built with React, TypeScript, Node.js, and TailwindCSS, it features real-time food search, meal logging, and interactive data visualizations. A custom carbon footprint model analyzes each meal’s ingredients to estimate its environmental cost, blending nutrition tracking with sustainability insights.",
+      "GreenBites is a full-stack web application that helps users track their meals and visualize the environmental impact of their diet.  Built with React, TypeScript, Node.js, and TailwindCSS, it features real-time food search, meal logging, and interactive data visualizations. A custom carbon footprint model analyzes each meal’s ingredients to estimate its environmental cost, blending nutrition tracking with sustainability insights.",
     tags: ["Next.js", "TypeScript", "React", "Drizzle", "Supabase"],
     links: {
       // Add your deployed link here later
@@ -101,15 +101,15 @@ export const funFacts = {
       icon: "Cat",
       title: "Cat Sanctuary Volunteer",
       description:
-        "Certified cat person. Between my own and the ones at the local sanctuary I volunteer at, they're my favorite way to decompress after a long build, and a good reminder to slow down.",
+        "I volunteer at the Best Friends Animal Society, located in Bushwick. Between my own and the ones at the sanctuary, they're my favorite way to keep myself grounded, and a good reminder to slow down.",
       image: "/images/cat-sanctuary.png",
       imageAlt: "Cats at an animal sanctuary",
     },
     {
       icon: "Swords",
-      title: "Yu-Gi-Oh Pro",
+      title: "Former Yu-Gi-Oh Pro",
       description:
-        "I used to grind competitive Yu-Gi-Oh tournaments, deck-building and reading opponents under pressure. Nothing sharpens strategic thinking like winning (or losing) a match card by card.",
+        "I used to grind competitive Yu-Gi-Oh tournaments, including a 4th place win at the regional qualifer at Flatbush junction. Even though I don't play anymore, the problem-solving skills that I developed has made me a better programmer and then some.",
       image: "/images/yugioh-picture.png",
       imageAlt: "Yu-Gi-Oh trading cards",
     },
@@ -118,7 +118,7 @@ export const funFacts = {
       icon: "Clapperboard",
       title: "Scriptwriter",
       description:
-        "When I'm not writing code, I'm writing scripts, plotting characters, dialogue, and story beats. It's the same obsession with structure and pacing, just aimed at a page instead of a screen.",
+        "I fancy myself a writer and storyteller, and since finishing my first rough spec script back in high school, I've kept a running backlog of narrative outlines that I continually revise. Is it pretenious? Absolutely. But it's also a way to practice my writing skills and keep my storytelling flow going.",
       image: "/images/Muaad-suit.jpg",
       imageAlt: "Scriptwriting and storyboarding",
     },
