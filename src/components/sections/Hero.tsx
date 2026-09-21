@@ -76,11 +76,12 @@ export default function Hero() {
             </h2>
             <p className="text-content-muted mb-9 max-w-2xl leading-relaxed">
               I&apos;m a full-stack software engineer graduating from Brooklyn
-              College, CUNY with a 3.96 GPA and Dean&apos;s Honor Award. I
-              specialize in building high-performance, real-time web
-              applications, with a strong focus on scalable architecture and
-              robust system design. My core stack is React, Next.js, and
-              TypeScript.
+              College, CUNY with a 3.96 GPA and Dean&apos;s Honor Award. I have
+              a strong focus on scalable architecture and robust system design,
+              while also having a strong foundation in software engineering
+              principles thanks to being taught by senior software developers
+              such as Robin Wieruch and Ryan Kahn. My core stack is React,
+              Next.js, and TypeScript.
             </p>
 
             {/* CTAs */}
