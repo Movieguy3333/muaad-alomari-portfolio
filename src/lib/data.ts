@@ -5,7 +5,7 @@ export const personalInfo = {
   title: "Full Stack Web Developer",
   email: "Muaad.Alomari@outlook.com",
   location: "New York City",
-  bio: "B.S Computer Science Graduate with specialized experience in React, Next.js, Typescript, and Tailwind CSS. I have a strong foundation in software engineering principles, and I am passionate about building scalable and efficient web applications. My goal is to leverage my skills to create innovative solutions that enhance user experiences.",
+  bio: "B.S Computer Science Graduate with specialized experience in React, Next.js, Typescript, and Tailwind CSS. I have a strong foundation in software engineering principles thanks to being taught by senior software developers such as Robin Wieruch and Ryan Kahn, and I am passionate about building scalable and efficient web applications. My goal is to leverage my skills to create innovative solutions that enhance user experiences.",
   links: {
     linkedin: "https://linkedin.com/in/muaadalomari/",
     github: "https://github.com/movieguy3333",
@@ -98,13 +98,13 @@ export const funFacts = {
   eyebrow: "Off the Clock",
   heading: "Fun Facts About Me",
   intro:
-    "There's a person behind the pull requests. Here's what keeps me sharp, grounded, and endlessly curious when I step away from the keyboard.",
+    "There's a person behind the screen. Here's what keeps me sharp, grounded, and endlessly curious when I step away from the keyboard.",
   facts: [
     {
       icon: "Cat",
       title: "Cat Sanctuary Volunteer",
       description:
-        "I volunteer at the Best Friends Animal Society, located in Bushwick. Between my own and the ones at the sanctuary, they're my favorite way to keep myself grounded, and a good reminder to slow down.",
+        "I volunteer at the Best Friends Animal Society, located in Bushwick. Between my own furry friends and the ones at the sanctuary, they're my favorite way to keep myself grounded.",
       image: "/images/cat-sanctuary.png",
       imageAlt: "Cats at an animal sanctuary",
     },
@@ -112,7 +112,7 @@ export const funFacts = {
       icon: "Swords",
       title: "Former Yu-Gi-Oh Pro",
       description:
-        "I used to grind competitive Yu-Gi-Oh tournaments, including a 4th place win at the regional qualifer at Flatbush junction. Even though I don't play anymore, the problem-solving skills that I developed has made me a better programmer and then some.",
+        "I used to grind competitive Yu-Gi-Oh tournaments, including a 4th place win at the regional qualifer at Flatbush Junction. Even though I don't play anymore, the problem-solving skills that I developed has made me a better programmer and problem solver.",
       image: "/images/yugioh-picture.png",
       imageAlt: "Yu-Gi-Oh trading cards",
     },
@@ -121,7 +121,7 @@ export const funFacts = {
       icon: "Clapperboard",
       title: "Scriptwriter",
       description:
-        "I fancy myself a writer and storyteller, and since finishing my first rough spec script back in high school, I've kept a running backlog of narrative outlines that I continually revise. Is it pretenious? Absolutely. But it's also a way to practice my writing skills and keep my storytelling flow going.",
+        "I am a writer and storyteller, and since finishing my first rough spec script back in high school, I've kept a running backlog of narrative outlines that I continually revise. Is it pretenious? Absolutely. But I find it a great way to keep my creativity muscle from atrophying.",
       image: "/images/Muaad-suit.jpg",
       imageAlt: "Scriptwriting and storyboarding",
     },
