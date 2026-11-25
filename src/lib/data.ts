@@ -98,7 +98,7 @@ export const funFacts = {
   eyebrow: "Off the Clock",
   heading: "Fun Facts About Me",
   intro:
-    "There's a person behind the screen. Here's what keeps me sharp, grounded, and endlessly curious when I step away from the keyboard.",
+    "Turns out I do leave my desk sometimes. Not often, but enough to have a few fun facts. ",
   facts: [
     {
       icon: "Cat",
